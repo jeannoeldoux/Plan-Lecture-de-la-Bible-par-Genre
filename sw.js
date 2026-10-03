@@ -1,0 +1,6 @@
+const CACHE='bible-genres-offline-v1';
+const INDEX=new URL('./index.html',self.location.href).href;
+const ASSETS=['./index.html','./methode.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./icon-180.png'].map(path=>new URL(path,self.location.href).href);
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('bible-genres-offline-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(url.origin!==self.location.origin)return;if(event.request.mode==='navigate'&&url.pathname.startsWith(new URL(self.registration.scope).pathname)){event.respondWith((async()=>{const cache=await caches.open(CACHE);try{const response=await fetch(event.request);if(response.ok){await cache.put(INDEX,response.clone());return response}return await cache.match(INDEX)||response}catch(error){const saved=await cache.match(INDEX);if(saved)return saved;throw error}})());return}if(ASSETS.includes(url.href)){event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request)))}});
