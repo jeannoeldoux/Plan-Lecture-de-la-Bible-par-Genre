@@ -1,0 +1,38 @@
+{
+  "jours": 365,
+  "livres": 66,
+  "chapitres": 1189,
+  "versets": 31169,
+  "omissions": 0,
+  "doublons": 0,
+  "genres": [
+    {
+      "genre": "Torah / Histoire",
+      "chapitres": 436,
+      "versets": 12872,
+      "minimum_par_jour": 22,
+      "maximum_par_jour": 45
+    },
+    {
+      "genre": "Psaumes / Sagesse",
+      "chapitres": 243,
+      "versets": 4851,
+      "minimum_par_jour": 11,
+      "maximum_par_jour": 16
+    },
+    {
+      "genre": "Prophètes",
+      "chapitres": 250,
+      "versets": 5489,
+      "minimum_par_jour": 9,
+      "maximum_par_jour": 21
+    },
+    {
+      "genre": "Nouveau Testament",
+      "chapitres": 260,
+      "versets": 7957,
+      "minimum_par_jour": 14,
+      "maximum_par_jour": 29
+    }
+  ]
+}
