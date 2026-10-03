@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "Bible en un an par genres",
+  "short_name": "Bible genres",
+  "lang": "fr",
+  "description": "Toute la Bible en 365 jours : quatre genres chaque jour, audio et suivi indépendant.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#1f4e78",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
